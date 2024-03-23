@@ -1,4 +1,3 @@
-// In your React application
 import React, { useState, useEffect } from 'react';
 
 const Greeting = () => {
@@ -6,7 +5,7 @@ const Greeting = () => {
 
   useEffect(() => {
     fetch('/api/greeting')
-      .then(response => response.text()) // Assuming the response is plain text
+      .then(response => response.text()) 
       .then(message => setGreeting(message));
   }, []);
 
