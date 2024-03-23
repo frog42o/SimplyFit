@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SimplyFitApplication {
 
 	public static void main(String[] args) {
+		System.out.println("Server is now running.");
 		SpringApplication.run(SimplyFitApplication.class, args);
 	}
 
