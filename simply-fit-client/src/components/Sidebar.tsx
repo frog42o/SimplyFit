@@ -6,14 +6,13 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
   return (
     <div
-      className={`sidebar position-fixed top-0 ${
-        isOpen ? "start-0" : "start-100"
-      }`}
+      className="sidebar position-fixed top-0"
       style={{
         width: "250px",
         height: "100vh",
         transition: "0.3s",
         backgroundColor: "#f8f9fa",
+        transform: isOpen ? "translateX(0)" : "translateX(-100%)", // This line controls the sliding effect
       }}
     >
       <button
@@ -40,5 +39,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
     </div>
   );
 };
+
 
 export default Sidebar;
