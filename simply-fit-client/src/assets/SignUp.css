@@ -1,3 +1,9 @@
 .name-group{
     display: flex;
 }
+.errorMsg{
+    color:red;
+}
+.successMsg{
+    color:green;
+}

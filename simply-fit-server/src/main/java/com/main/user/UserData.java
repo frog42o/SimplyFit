@@ -1,8 +1,11 @@
-package com.main;
+package com.main.user;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "users")
 public class UserData {
+
     @Id
     private String id;  // This will map to MongoDB's _id field
     private String firstName;
@@ -13,7 +16,9 @@ public class UserData {
     private String password;
     private String phoneNumber;
 
-
+    public String getId() {
+        return id;
+    }
     public String getDateOfBirth() {
         return dateOfBirth;
     }

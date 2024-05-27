@@ -1,11 +1,15 @@
-import Greeting from "./components/Greeting";
-import HomePage from "./components/HomePage";
+
+import Dashboard from "./components/Dashboard";
 import LandingPage from "./components/LandingPage";
+
 function App() {
-  return (
-    <div className="position-relative">
-      <LandingPage/>
-    </div>
-  );
+  const pathname = window.location.pathname;
+
+  switch (pathname) {
+    case '/dashboard':
+      return <Dashboard/>;
+    default:
+      return <LandingPage />;
+  }
 }
 export default App;
