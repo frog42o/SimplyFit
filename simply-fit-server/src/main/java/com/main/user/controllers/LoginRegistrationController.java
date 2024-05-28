@@ -25,23 +25,18 @@ public class LoginRegistrationController {
     public ResponseEntity<String> loginUser(@RequestBody LoginRequest loginRequest, HttpSession session) {
         UserData user = userUtil.loginUser(loginRequest);
         if(user != null){
-            //session.setAttribute("user", user);
+            session.setAttribute("user", user);
             return ResponseEntity.ok().header("Location", "/dashboard").body("Login successful. Redirecting to dashboard...");
         }
         return ResponseEntity.status(401).body("Invalid username or password");
     }
+    @GetMapping("/logout")
     public ResponseEntity<String> logoutUser(HttpSession session) {
+        UserData userData = (UserData) session.getAttribute("user");
+        System.out.println("successfully logged out ["+userData.getUsername()+"]");
         session.invalidate();
         return ResponseEntity.ok("Logged out successfully");
     }
-    @GetMapping("/dashboard")
-    public ResponseEntity<String> getDashboard(HttpSession session) {
-        UserData userData = (UserData) session.getAttribute("user");
-        if (userData != null) {
-            return ResponseEntity.ok("Welcome to the dashboard, " + userData.getUsername());
-        } else {
-            return ResponseEntity.status(401).body("Unauthorized");
-        }
-    }
+
 }
 

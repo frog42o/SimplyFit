@@ -2,9 +2,10 @@ import { useState , ChangeEvent, FormEvent} from 'react';
 import axios from 'axios';
 import '../assets/Login.css'; 
 
-interface LoginProps {
+  interface LoginProps {
     onSwitchComponent: (index: number) => void;
   }
+  axios.defaults.withCredentials = true;
   function Login({onSwitchComponent}:LoginProps){
     const [loginData, setLoginData] = useState({
         username: '',

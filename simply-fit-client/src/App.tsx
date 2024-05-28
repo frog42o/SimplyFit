@@ -7,7 +7,7 @@ function App() {
 
   switch (pathname) {
     case '/dashboard':
-      return <Dashboard/>;
+      return <div className="position-relative"><Dashboard/></div>;
     default:
       return <LandingPage />;
   }
